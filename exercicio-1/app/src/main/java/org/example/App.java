@@ -24,6 +24,8 @@ package org.example;
 				else{
 					for(int i = 0, espaco = tamanho, asterisco = 1; i < tamanho / 2 + 1; i++, asterisco += 2, espaco -= 2)
 						System.out.println(" ".repeat((espaco-1)/2) + "*".repeat(asterisco) + " ".repeat(((espaco-1)/2)));
+					for(int i = 0, espaco = 1, asterisco = tamanho; i < tamanho / 2; i++, espaco++, asterisco -= 2)
+						System.out.println(" ".repeat(espaco) + "*".repeat(asterisco - 2) + " ".repeat(espaco));
 				}
 			}
 			else if (forma_geometrica.equals("retangulo")) {
