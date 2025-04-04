@@ -48,7 +48,7 @@ import java.lang.Math;
             double valor_final = valor * Math.pow(10, potencia);
             //simplificando o resultado do valor final
             int simplifica = 0;
-            while(valor_final >= 1000) {
+            while(valor_final >= 100) {
                 valor_final /= 1000;
                 simplifica++;
             }
@@ -61,7 +61,7 @@ import java.lang.Math;
             else if (indice_tolerancia == -2)
                 indice_tolerancia = 10;
 
-            if (resistor[3].equals("4") || resistor[3].equals("3"))
+            if(resistor[3].equals("4") || resistor[3].equals("3"))
                 System.out.printf("Resistência: %.2f %c Ohms\n", valor_final, siglas[simplifica]);
             else
                 System.out.printf("Resistência: %.2f %c Ohms (+- %.2f %%)\n", valor_final, siglas[simplifica], tolerancia[indice_tolerancia]);
