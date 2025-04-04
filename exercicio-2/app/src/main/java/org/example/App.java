@@ -29,16 +29,41 @@ import java.lang.Math;
                     case "branco" -> "9";
                     case "ouro" -> "-1";
                     case "prata" -> "-2";
-                    default -> "Digite um numero valido de 0 a 9";
+                    default -> "x";
                 };
             }
+            //validando se as cores existem para resistores
+            for(int i = 0; i < args.length; i++)
+                if(resistor[i].equals("x")) {
+                    System.out.println("Digite pelo menos 3 cores validas.");
+                    return;
+                }
+
+            //concatenando a casa1 e casa2 e transformando em int
             String valor_char = resistor[0] + resistor[1];
             int valor = Integer.parseInt(valor_char);
 
             int potencia = Integer.parseInt(resistor[2]);
 
             double valor_final = valor * Math.pow(10, potencia);
+            //simplificando o resultado do valor final
+            int simplifica = 0;
+            while(valor_final >= 1000) {
+                valor_final /= 1000;
+                simplifica++;
+            }
+            char[] siglas = new char[] {' ', 'K', 'M', 'G'};
 
-            System.out.printf("Resistência: %f Ohms (+- %.2f)\n", valor_final, tolerancia[3]);
+            //verificando tolerancia
+            int indice_tolerancia = Integer.parseInt(resistor[3]);
+            if(indice_tolerancia == -1)
+                indice_tolerancia = 9;
+            else if (indice_tolerancia == -2)
+                indice_tolerancia = 10;
+
+            if (resistor[3].equals("4") || resistor[3].equals("3"))
+                System.out.printf("Resistência: %.2f %c Ohms\n", valor_final, siglas[simplifica]);
+            else
+                System.out.printf("Resistência: %.2f %c Ohms (+- %.2f %%)\n", valor_final, siglas[simplifica], tolerancia[indice_tolerancia]);
         }
     }
