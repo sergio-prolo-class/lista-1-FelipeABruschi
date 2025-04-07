@@ -55,15 +55,19 @@ import java.lang.Math;
             char[] siglas = new char[] {' ', 'K', 'M', 'G'};
 
             //verificando tolerancia
-            int indice_tolerancia = Integer.parseInt(resistor[3]);
-            if(indice_tolerancia == -1)
-                indice_tolerancia = 9;
-            else if (indice_tolerancia == -2)
-                indice_tolerancia = 10;
+            if(args.length == 4) {
+                int indice_tolerancia = Integer.parseInt(resistor[3]);
+                if(indice_tolerancia == -1)
+                    indice_tolerancia = 9;
+                else if (indice_tolerancia == -2)
+                    indice_tolerancia = 10;
 
-            if(resistor[3].equals("4") || resistor[3].equals("3"))
-                System.out.printf("Resistência: %.2f %c Ohms\n", valor_final, siglas[simplifica]);
+                if(resistor[3].equals("4") || resistor[3].equals("3"))
+                    System.out.printf("Resistência: %.2f %c Ohms\n", valor_final, siglas[simplifica]);
+                else
+                    System.out.printf("Resistência: %.2f %c Ohms (+- %.2f %%)\n", valor_final, siglas[simplifica], tolerancia[indice_tolerancia]);
+            }
             else
-                System.out.printf("Resistência: %.2f %c Ohms (+- %.2f %%)\n", valor_final, siglas[simplifica], tolerancia[indice_tolerancia]);
+                System.out.printf("Resistência: %.2f %c Ohms\n", valor_final, siglas[simplifica]);
         }
     }
