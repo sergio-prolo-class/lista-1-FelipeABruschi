@@ -2,5 +2,15 @@
 
 FELIPE AUGUSTO BRUSCHI
 
-Exercicio 1: Compile o código com ./gradlew build e depois execute com ./gradleW run --args "forma tamanho", se for retangulo digite o tamanho dos dois lados.
+Para todos os exercícios, compile o código com ./gradlew build, depois execute com ./gradlew run
+
+Exercicio 1: Digite ./gradlew run --args "formato tamanho" 
+	(formato: triangulo, losango, retangulo)
+	(tamanho: caso seja retangulo, os lados devem ter tamanho maior que 1.)
+
+Exercicio 2: Digite ./gradlew run --args "cor 1, cor 2, cor 3, cor 4"
+
+Exercicio 3: Apenas compile e execute, irá formar tabuleiros aleatórios a cada execução.
+
+Exercicio 4:
  

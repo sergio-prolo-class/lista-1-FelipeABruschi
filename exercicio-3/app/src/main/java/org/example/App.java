@@ -39,9 +39,9 @@ public class App {
             int linha = posicao(), coluna = posicao();
             int direcao = direcao();
 
-            boolean teste = true;
+            boolean navio_inserido = false;
 
-            while(teste)
+            while(!navio_inserido)
                 for(int i = 0; i < 10; i++)
                     for(int j = 0; j < 10; j++)
                         if(linha == i && coluna == j){
@@ -64,7 +64,7 @@ public class App {
                                 if (inserir_navio == 0) {
                                     for (int z = 0, aux = j; z < tam; z++, aux++)
                                         tabuleiro[i][aux] = navio[n];
-                                    teste = false;
+                                    navio_inserido = true;
                                 }
                             }
                             else {
@@ -85,7 +85,7 @@ public class App {
                                 if (inserir_navio == 0) {
                                     for (int z = 0, aux = i; z < tam; z++, aux++)
                                         tabuleiro[aux][j] = navio[n];
-                                    teste = false;
+                                    navio_inserido = true;
                                 }
                             }
                         }
